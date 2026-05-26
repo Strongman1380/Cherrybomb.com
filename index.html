@@ -39,7 +39,11 @@
 
   <!-- ── Navigation ──────────────────────────────── -->
   <nav class="nav" role="navigation" aria-label="Main">
-    <a href="#home" class="nav-logo">Cherry Bomb</a>
+    <a href="#home" class="nav-logo">
+      <img src="images/logo.png" alt="Cherry Bomb" class="nav-logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='inline'" />
+      <span class="nav-logo-text">Cherry Bomb</span>
+    </a>
 
     <ul class="nav-links" id="nav-links">
       <li><a href="#menu">Menu</a></li>
@@ -70,11 +74,20 @@
 
     <div class="hero-content">
       <p class="hero-eyebrow">✦ Opening Soon ✦</p>
-      <h1 class="hero-title">
-        <span class="t-cherry">Cherry</span>
-        <span class="t-bomb">Bomb</span>
-      </h1>
-      <p class="hero-tagline">Sip Loud.</p>
+
+      <!-- Real logo image — text title shows as fallback if image missing -->
+      <div class="hero-logo-wrap">
+        <img src="images/logo.png"
+             alt="Cherry Bomb — Dirty Sodas · Refreshers · Energy"
+             class="hero-logo-img"
+             onerror="this.parentElement.classList.add('logo-missing')" />
+        <!-- Fallback text (hidden when image loads) -->
+        <h1 class="hero-title hero-title-fallback" aria-hidden="true">
+          <span class="t-cherry">Cherry</span>
+          <span class="t-bomb">Bomb</span>
+        </h1>
+      </div>
+
       <p class="hero-sub">Dirty Sodas &nbsp;•&nbsp; Refreshers &nbsp;•&nbsp; Energy</p>
       <div class="hero-actions">
         <a href="#menu" class="btn btn-primary">See the Menu</a>
@@ -127,7 +140,12 @@
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <span class="card-badge">✦ Featured</span>
-          <div class="card-emoji">🌸</div>
+          <!-- Drink photo — falls back to emoji if not present -->
+          <div class="card-photo-wrap">
+            <img src="images/pink-cadillac.jpg" alt="Pink Cadillac drink" class="card-photo"
+                 onerror="this.parentElement.classList.add('photo-missing')" />
+            <div class="card-emoji card-emoji-fallback">🌸</div>
+          </div>
           <h3 class="card-name">Pink Cadillac</h3>
           <p class="card-desc">She's sweet. She's sparkly. She's a little dramatic.</p>
           <ul class="card-ing">
@@ -234,6 +252,11 @@
     <div class="container">
       <div class="poster" data-reveal>
         <div class="poster-top-line" aria-hidden="true"></div>
+        <!-- Taste Testers graphic -->
+        <div class="poster-img-wrap">
+          <img src="images/taste-testers.png" alt="Taste Testers Wanted" class="poster-img"
+               onerror="this.parentElement.style.display='none'" />
+        </div>
         <span class="eyebrow">Before the Soft Launch</span>
 
         <h2 class="poster-title">
@@ -285,8 +308,12 @@
     <div class="footer-glow" aria-hidden="true"></div>
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="footer-logo">Cherry Bomb</span>
-        <span class="footer-tag">Sip Loud.</span>
+        <img src="images/logo.png" alt="Cherry Bomb" class="footer-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="footer-logo-text" style="display:none">
+          <span class="footer-logo">Cherry Bomb</span>
+          <span class="footer-tag">Sip Loud.</span>
+        </div>
       </div>
 
       <nav class="footer-nav" aria-label="Social links">

@@ -96,6 +96,117 @@ ul, ol { list-style: none; }
   padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 
+/* ── Image assets ────────────────────────────────────────────────────────────── */
+
+/* Nav logo image */
+.nav-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255,28,142,.5));
+  transition: filter .3s;
+}
+.nav-logo:hover .nav-logo-img {
+  filter: drop-shadow(0 0 16px rgba(255,28,142,.85));
+}
+/* Show text only when image fails */
+.nav-logo-text { display: none; }
+
+/* Hero logo */
+.hero-logo-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+
+.hero-logo-img {
+  width: min(580px, 82vw);
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 0 30px rgba(255,28,142,.65))
+    drop-shadow(0 0 70px rgba(200,0,44,.4))
+    drop-shadow(0 0 4px rgba(255,255,255,.2));
+  animation: logo-float 5s ease-in-out infinite, fade-up .9s .5s var(--ease-out-expo) both;
+  will-change: transform, filter;
+}
+
+@keyframes logo-float {
+  0%,100% { transform: translateY(0)   scale(1);    }
+  50%      { transform: translateY(-10px) scale(1.012); }
+}
+
+/* Fallback text — shown only when logo-missing class added by onerror */
+.hero-title-fallback { display: none; }
+.hero-logo-wrap.logo-missing .hero-logo-img      { display: none; }
+.hero-logo-wrap.logo-missing .hero-title-fallback { display: flex; }
+
+/* Pink Cadillac drink photo */
+.card-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: rgba(255,28,142,.06);
+}
+
+.card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  transition: transform .5s var(--ease-out-expo);
+}
+
+.drink-card:hover .card-photo { transform: scale(1.05); }
+
+/* Emoji fallback when photo missing */
+.card-emoji-fallback { display: none; }
+.card-photo-wrap.photo-missing .card-photo        { display: none; }
+.card-photo-wrap.photo-missing .card-emoji-fallback {
+  display: block;
+  font-size: 3.2rem;
+  padding: 1rem 0;
+  text-align: center;
+  filter: drop-shadow(0 0 12px rgba(255,28,142,.55));
+}
+
+/* Poster (taste testers) image */
+.poster-img-wrap {
+  margin: 0 auto 1.5rem;
+  max-width: 340px;
+}
+
+.poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  filter: drop-shadow(0 0 20px rgba(255,28,142,.4));
+}
+
+/* Footer logo image */
+.footer-logo-img {
+  height: 80px;
+  width: auto;
+  display: block;
+  margin-inline: auto;
+  filter: drop-shadow(0 0 16px rgba(255,28,142,.45));
+  transition: filter .3s;
+}
+.footer-logo-img:hover {
+  filter: drop-shadow(0 0 28px rgba(255,28,142,.8));
+}
+.footer-logo-text {
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+}
+
 /* ── Shared utility ──────────────────────────────────────────────────────────── */
 .eyebrow {
   display: inline-block;
