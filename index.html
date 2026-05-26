@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cherry Bomb — Dirty Sodas, Refreshers & Energy Drinks. Sip Loud." />
+  <meta name="theme-color" content="#FF1C8E" />
+  <title>Cherry Bomb — Sip Loud.</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Three.js ESM Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- GSAP (loaded before module script via defer) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ── Navigation ──────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main">
+    <a href="#home" class="nav-logo">Cherry Bomb</a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#vibe">Our Vibe</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#contact" class="nav-cta">Find Us</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────── -->
+  <section class="hero" id="home">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-radial" aria-hidden="true"></div>
+
+    <!-- Floating decorative elements -->
+    <div class="floats" aria-hidden="true">
+      <span class="f f1">🍒</span>
+      <span class="f f2">🍒</span>
+      <span class="f f3">✦</span>
+      <span class="f f4">✦</span>
+      <span class="f f5">⚡</span>
+      <span class="f f6">🪩</span>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Opening Soon ✦</p>
+      <h1 class="hero-title">
+        <span class="t-cherry">Cherry</span>
+        <span class="t-bomb">Bomb</span>
+      </h1>
+      <p class="hero-tagline">Sip Loud.</p>
+      <p class="hero-sub">Dirty Sodas &nbsp;•&nbsp; Refreshers &nbsp;•&nbsp; Energy</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary">See the Menu</a>
+        <a href="#community" class="btn btn-ghost">Join the Drop</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── Marquee ────────────────────────────────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>SIP LOUD</span><span class="mx">🍒</span>
+      <span>DIRTY SODAS</span><span class="mx">⚡</span>
+      <span>REFRESHERS</span><span class="mx">✦</span>
+      <span>ENERGY DRINKS</span><span class="mx">🍒</span>
+      <span>RETRO CHAOS</span><span class="mx">⚡</span>
+      <span>DISCO BALL VIBES</span><span class="mx">✦</span>
+      <span>NEON LIGHTS</span><span class="mx">🍒</span>
+      <span>MAIN CHARACTER ENERGY</span><span class="mx">⚡</span>
+      <!-- duplicate for seamless loop -->
+      <span>SIP LOUD</span><span class="mx">🍒</span>
+      <span>DIRTY SODAS</span><span class="mx">⚡</span>
+      <span>REFRESHERS</span><span class="mx">✦</span>
+      <span>ENERGY DRINKS</span><span class="mx">🍒</span>
+      <span>RETRO CHAOS</span><span class="mx">⚡</span>
+      <span>DISCO BALL VIBES</span><span class="mx">✦</span>
+      <span>NEON LIGHTS</span><span class="mx">🍒</span>
+      <span>MAIN CHARACTER ENERGY</span><span class="mx">⚡</span>
+    </div>
+  </div>
+
+  <!-- ── Menu Section ───────────────────────────── -->
+  <section class="section menu-section" id="menu">
+    <div class="container">
+      <header class="section-header" data-reveal>
+        <span class="eyebrow">The Drinks</span>
+        <h2 class="section-title">What's <span class="neon-pink">Dropping</span></h2>
+        <p class="section-sub">Big flavors. Loud vibes. Drinks almost too cute to sip.</p>
+      </header>
+
+      <div class="drinks-grid">
+
+        <!-- Featured: Pink Cadillac -->
+        <article class="drink-card featured" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-shine"></div>
+          <span class="card-badge">✦ Featured</span>
+          <div class="card-emoji">🌸</div>
+          <h3 class="card-name">Pink Cadillac</h3>
+          <p class="card-desc">She's sweet. She's sparkly. She's a little dramatic.</p>
+          <ul class="card-ing">
+            <li>✨ Sprite</li>
+            <li>✨ Strawberry</li>
+            <li>✨ Coconut</li>
+            <li>✨ Cream</li>
+            <li>✨ Cherry Bomb Shimmer</li>
+          </ul>
+          <blockquote class="card-vibe">
+            Summer in a cup with main character energy 💖⚡
+          </blockquote>
+          <footer class="card-foot">
+            <span class="tag tag-soda">Dirty Soda</span>
+            <span class="card-status status-soon">Coming Soon</span>
+          </footer>
+        </article>
+
+        <!-- The Detonator -->
+        <article class="drink-card" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-shine"></div>
+          <div class="card-emoji">💥</div>
+          <h3 class="card-name">The Detonator</h3>
+          <p class="card-desc">High voltage. Bold flavor. Not for the faint of heart.</p>
+          <footer class="card-foot">
+            <span class="tag tag-energy">Energy</span>
+            <span class="card-status status-tbd">Menu Dropping Soon</span>
+          </footer>
+        </article>
+
+        <!-- Disco Fizz -->
+        <article class="drink-card" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-shine"></div>
+          <div class="card-emoji">🪩</div>
+          <h3 class="card-name">Disco Fizz</h3>
+          <p class="card-desc">Sparkle. Sip. Repeat. The crowd favorite refresher.</p>
+          <footer class="card-foot">
+            <span class="tag tag-refresh">Refresher</span>
+            <span class="card-status status-tbd">Menu Dropping Soon</span>
+          </footer>
+        </article>
+
+        <!-- Cherry Bomb OG -->
+        <article class="drink-card" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-shine"></div>
+          <div class="card-emoji">🍒</div>
+          <h3 class="card-name">Cherry Bomb OG</h3>
+          <p class="card-desc">The one that started it all. Classic. Loud. Iconic.</p>
+          <footer class="card-foot">
+            <span class="tag tag-soda">Dirty Soda</span>
+            <span class="card-status status-tbd">Menu Dropping Soon</span>
+          </footer>
+        </article>
+
+      </div><!-- /drinks-grid -->
+
+      <div class="menu-cta" data-reveal>
+        <p>Full menu dropping at soft launch</p>
+        <a href="#community" class="btn btn-primary">Get Notified</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Vibe Section ───────────────────────────── -->
+  <section class="section vibe-section" id="vibe">
+    <div class="checker-bg" aria-hidden="true"></div>
+    <div class="container">
+      <header class="section-header" data-reveal>
+        <span class="eyebrow">The Cherry Bomb Experience</span>
+        <h2 class="vibe-title">Bold Little <span class="neon-pink">Drink</span> Concept<br />Living Rent Free</h2>
+      </header>
+
+      <div class="vibe-grid">
+        <div class="vibe-card" data-reveal>
+          <span class="vibe-icon">💖</span>
+          <h3>Dirty Sodas</h3>
+          <p>Cream-topped, flavor-loaded, dangerously drinkable.</p>
+        </div>
+        <div class="vibe-card" data-reveal>
+          <span class="vibe-icon">⚡</span>
+          <h3>Loaded Energy</h3>
+          <p>High voltage drinks that match your main character energy.</p>
+        </div>
+        <div class="vibe-card" data-reveal>
+          <span class="vibe-icon">🌈</span>
+          <h3>Colorful Refreshers</h3>
+          <p>Bright. Bold. Beautiful. Almost too pretty to sip.</p>
+        </div>
+        <div class="vibe-card" data-reveal>
+          <span class="vibe-icon">🪩</span>
+          <h3>Disco Ball Vibes</h3>
+          <p>Neon lights, retro chaos, shimmer in every single cup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Community / Taste Testers ─────────────── -->
+  <section class="section community-section" id="community">
+    <div class="community-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="poster" data-reveal>
+        <div class="poster-top-line" aria-hidden="true"></div>
+        <span class="eyebrow">Before the Soft Launch</span>
+
+        <h2 class="poster-title">
+          Taste Testers<br />
+          <span class="neon-red">Wanted!</span>
+        </h2>
+
+        <p class="poster-desc">
+          I need a few brave volunteers to try some drinks before soft launch!
+          Help me perfect the menu.
+        </p>
+
+        <ul class="req-list">
+          <li class="req-item">
+            <span class="req-icon">📸</span>
+            <div>
+              <strong>Post Photos &amp; Videos</strong>
+              <span>Show off those drinks!</span>
+            </div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon">📢</span>
+            <div>
+              <strong>Share the Vibes</strong>
+              <span>Help spread the Cherry Bomb love!</span>
+            </div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon">💖</span>
+            <div>
+              <strong>Hype It Up!</strong>
+              <span>Honest feedback = the best drinks!</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="poster-actions">
+          <a href="https://www.facebook.com/profile.php?id=61576661219900" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            Comment on Facebook ↗
+          </a>
+          <p class="poster-note">Help me perfect the menu before launch!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────── -->
+  <footer class="footer" id="contact">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Cherry Bomb</span>
+        <span class="footer-tag">Sip Loud.</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Social links">
+        <a href="https://www.facebook.com/profile.php?id=61576661219900" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <span aria-hidden="true">•</span>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </nav>
+
+      <p class="footer-meta">
+        Dirty Sodas &nbsp;•&nbsp; Refreshers &nbsp;•&nbsp; Energy<br />
+        © 2025 Cherry Bomb. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main JS (ES module) -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
